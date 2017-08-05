@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+.mainmenu
+{
+	position:fixed;
+	margin-top:0px;
+	width:100%;
+	background-color:#333;
+	height:50px;
+	z-index:1000;
+	background:rgba(0,0,0,0.6);
+	box-shadow:0px 0px 15px 4px black;
+	text-decoration: none;
+}
+/* Dropdown Button */
+.dropbtn {
+	background-color:transparent;
+    color: black;
+	padding-top:6px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+	float:left;
+	width:120px;
+	margin-left:0px;
+	-webkit-transition-duration:0.5s;
+	transition-duration:0.5s;
+	height:50px;
+	text-decoration: none;
+	
+	
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position:absolute;
+    display:inline-block;
+	z-index:5;
+	margin-top: 10px;
+	background:rgba(0,0,0,0.2);
+
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position:absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	width:10px;
+	-webkit-transition-duration:0.9s;
+	transition-duration:0.9s;
+	margin-top:50px;
+	background:rgba(0,0,0,0.5);
+	
+	
+		
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding-top:9px;
+    text-decoration: none;
+    display: block;
+	background-color:#333;
+	height:40px;
+	text-align:center;
+	background:white;
+	font-size:12px;
+	font-family: Tahoma;
+	
+		
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color:#4CAF50;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+	 position:absolute;
+}
+
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color:#4CAF50;
+    text-decoration: none;
+    
+
+	 }
+/* CSS Document */
