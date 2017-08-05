@@ -1,0 +1,747 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>projects_cl</title>
+    <link rel="stylesheet"type="text/css" href="sample_css.css">
+    <link rel="stylesheet"type="text/css" href="menu_s.css">
+<!--......................................the slideshow........................................................-->
+	<style type="text/css">
+	#slideshow { 
+		
+     
+    position:relative;
+    width: 1485px; 
+    height: 1449px; 
+    padding: 0px; 
+ 
+
+    
+}
+
+#slideshow > div { 
+    position: absolute; 
+    top: 0px; 
+    left: 0px; 
+    right: 10px; 
+    bottom: 10px; 
+}
+
+
+table, th, td {
+    border: 1px solid #4CAF50;;
+    border-collapse: collapse;
+    text-align: center;
+
+}
+th {
+    background-color: #4CAF50;;
+    color: black;
+}
+td{
+  width:323px;
+}
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+	$("#slideshow > div:gt(0)").hide();
+
+setInterval(function() { 
+  $('#slideshow > div:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('#slideshow');
+},  5000);
+	</script>
+
+<!--....................................end of slideshow.............................................................-->
+
+<script type="text/javascript">
+    var ul;
+var li_items; 
+var li_number;
+var image_number = 0;
+var slider_width = 0;
+var image_width;
+var current = 0;
+function init(){	
+	ul = document.getElementById('image_slider');
+	li_items = ul.children;
+	li_number = li_items.length;
+	for (i = 0; i < li_number; i++){
+		// nodeType == 1 means the node is an element.
+		// in this way it's a cross-browser way.
+		//if (li_items[i].nodeType == 1){
+			//clietWidth and width???
+			image_width = li_items[i].childNodes[0].clientWidth;
+			slider_width += image_width;
+			image_number++;
+	}
+	
+	ul.style.width = parseInt(slider_width) + 'px';
+	slider(ul);
+}
+
+function slider(){		
+		animate({
+			delay:17,
+			duration: 3000,
+			delta:function(p){return Math.max(0, -1 + 2 * p)},
+			step:function(delta){
+					ul.style.left = '-' + parseInt(current * image_width + delta * image_width) + 'px';
+				},
+			callback:function(){
+				current++;
+				if(current < li_number-1){
+					slider();
+				}
+				else{
+					var left = (li_number - 1) * image_width;					
+					setTimeout(function(){goBack(left)},3000); 				
+					setTimeout(slider, 3000);
+				}
+			}
+		});
+}
+function goBack(left_limits){
+	current = 0;	
+	setInterval(function(){
+		if(left_limits >= 0){
+			ul.style.left = '-' + parseInt(left_limits) + 'px';
+			left_limits -= image_width / 10;
+		}	
+	}, 17);
+}
+function animate(opts){
+	var start = new Date;
+	var id = setInterval(function(){
+		var timePassed = new Date - start;
+		var progress = timePassed / opts.duration
+		if(progress > 1){
+			progress = 1;
+		}
+		var delta = opts.delta(progress);
+		opts.step(delta);
+		if (progress == 1){
+			clearInterval(id);
+			opts.callback();
+		}
+	}, opts.dalay || 17);
+}
+window.onload = init;
+</script>
+
+  </head>
+    <body>
+    	<div id="slideshow" style="position:absolute">
+    	<div>
+    		 <img src="Aviary Photo_131093630460243541.png">
+  		</div>
+  		 <div>
+    		 <img src="Aviary Photo_131093630140229334.png">
+  		 </div>
+
+  		<div>
+    		 <img src="Aviary Photo_131093630014510153.png">
+  		 </div>
+  		<div>
+    		 <img src="Aviary Photo_131093629635620158.png">
+  		 </div>
+  		<div>
+    		 <img src="Aviary Photo_131093629298581088.png">
+  		 </div>
+		</div>
+
+      <div class="d1" style="position:absolute;margin:auto;">
+      		<!--title divs-->
+
+
+      		<header>
+            <div class="d11" style="opacity:0.2px ;box-shadow:0px 0px 9px -3px black;">
+
+            </div>
+            <div class="d11" style="background-color:transparent;">
+            <div style="position:absolute;">
+            <img src="red.png" style="height:190px;width:190px; margin-left:20px;">
+            </div>
+            <div style="color:black;font-family:Tahoma;font-size:34px;text-align:center;position:absolute;margin-top:30px;margin-left:170px"><b>Central Muga Eri Research and Training Institute (CMER&TI)</b></div>
+
+            <div style="color:black;font-family:Tahoma;font-size:20px;position:absolute;margin-top:110px;margin-left:470px;">Lahdoigarh-785700,Jorhat( ASSAM )</div>
+            <div style="color:black;font-family:Tahoma;font-size:20px;position:absolute;margin-top:140px;margin-left:390px; text-align:center;">Central Silk Board,Ministry Of Textile:Govt. of India
+            <br>
+             <b>( AN ISO 9001 : 2008 Certified Institute )</b>
+            </div>
+            </div>
+          </header>
+
+      		<div style="margin-left:207px; margin-top:210px; position:absolute;">
+      			<div class="dropdown">
+  					<a href="sample_1.html" style="text-decoration:none;"><button class="dropbtn">Home</button></a>
+ 				 </div>
+
+ 				<div class="dropdown"  style="margin-left:121px;">
+ 				 <button class="dropbtn">About</button>
+ 					 <div class="dropdown-content">
+  						  <a href="about_us_intro.html">Introduction</a>
+  						  <a href="about_us_back.html">Background</a>
+  						  <a href="about_us_man.html">Mandate</a>
+  						  <a href="about_us_act.html">Activities</a>
+  						  <a href="Vision for 2020.pdf">Vision Plan 2020</a>
+  						  
+ 					 </div>
+ 				</div>
+
+ 				<div class="dropdown"  style="margin-left:242px;">
+ 				 <button class="dropbtn">Organisation</button>
+ 					 <div class="dropdown-content">
+  						  <a href="org_setup.html">Org Setup</a>
+  						 
+  						  
+ 					 </div>
+ 				</div>
+ 				<div class="dropdown"  style="margin-left:362.5px;">
+ 				 <button class="dropbtn">Division</button>
+ 					 <div class="dropdown-content">
+  						  <a href="div_rd.html">R & D</a>
+  						  <a href="div_admin.html">Administrative</a>
+  						   <a href="div_est.html">Establishment</a>
+  						  <a href="div_o.html">Others</a>
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:483.5px;">
+ 				 <button class="dropbtn">Publication</button>
+ 					 <div class="dropdown-content">
+  						  <a href="pap.html">Publications & Patents</a>
+  						  <a href="rp.html"> Research Publication</a>
+  						  <a href="bm.html"> Books & Manuals</a>
+  						  <a href="tn.html"> Tech Notes</a>
+  						  <a href="lp.html"> Leaflets & Pamphlets</a>
+                 <a href="nl.html">Newsletters</a>
+
+  					  
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:604.5px;">
+ 				 <button class="dropbtn">Technologies</button>
+ 					 <div class="dropdown-content">
+  					 <a href="tp.html">Tech & Patents</a>
+                <a href="Technologies of CMER&TI.pdf">Brief Details</a>
+                <a href="Course Wares-Muga.pdf">Muga Culcure</a>
+                <a href="Course Ware-Eri.pdf">Eri Culcure</a>
+                <a href="CMER&TI technologies  and their  implementation at field level.pdf">Tech & implementation</a>
+  						  
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:725px;">
+ 				 <button class="dropbtn">Projects</button>
+ 					 <div class="dropdown-content">
+  						  <a href="og.html">Ongoing</a>
+  						  <a href="cl.html">Concluded</a>
+  					
+  						  
+  						  
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:846px;">
+ 				 <a href="contact.html" style="text-decoration:none;"><button class="dropbtn">Contact Us</button></a>
+ 					 
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:966.5px;">
+ 				 <a href="gallery.html" style="text-decoration:none;"><button class="dropbtn">Gallery</button></a>
+ 					 
+ 				</div>
+  
+  </div>
+
+      		<div class="d12"></div>
+      		<!--info div_left-->
+      	<div class="d13" style="width:1073px; overflow:scroll">
+        <div class="d17" style="width:1053px;font-size:36px;margin-top:2px;"><b>COLCLUDED PROJECTS</b></div>
+         <div class="d17" style="width:1053px;font-size:18px;margin-top:88px;">
+             <center><table bordercolor:black;>
+             <tr style="font-size:30px">
+               <th><b>CSB CODE</b></th>
+               <th><b>TITLE</b></th>
+               <th><b>DURATION</b></th> 
+
+             </tr>
+
+<!--.......................................................................HEADER LIST...............................................................-->
+              
+              <tr>
+                <td>PIE 5853</td>
+                <td style="width:1010px;text-align:left;">Collection, characterization, evaluation and conservation of perennial host plants of eri Silkworm rearing </td>
+                <td>Sept.'11 - Aug.'14</td>
+              </tr>
+              <tr>
+              <td>AIE 5854</td>
+                <td style="width:1010px;text-align:left;">Exploration, collection, characterization and cataloguing of wild sericigenous insects available in North East India  </td>
+                <td>Sept.'11 - Aug.'14</td>
+              </tr>
+
+               <tr>
+              <td>APS 5859</td>
+                <td style="width:1010px;text-align:left;">Development of egg preservation schedule in muga silkworm Antheraea assamensis Helfer </td>
+                <td>Sept.'11 - Aug.'15</td>
+              </tr>
+
+              <tr>
+              <td>AIB 5857</td>
+                <td style="width:1010px;text-align:left;">Evaluation and identification of suitable strain (s) and eco race (s) of eri silkworm Samia ricini Donovan  </td>
+                <td>Sept.'11 - Aug.'13</td>
+              </tr>
+
+              <tr>
+              <td>APR 5858</td>
+                <td style="width:1010px;text-align:left;"> Eri silkworm (Samia ricini) rearing and cocoon production in relation to host plant castor genotypes (Ricnius communis) raised under different soil fertility leaves under rain fed conditions in semi-arid region.</td>
+                <td>Sept.'11 - Aug.'14</td>
+              </tr>
+
+              <tr>
+              <td>APS 5859</td>
+                <td style="width:1010px;text-align:left;">Development of egg preservation technique of eri silkworm Samia ricini (Donovan) </td>
+                <td>Sept.'11 - Aug.'14</td>
+              </tr>
+
+              <tr>
+              <td>ARE 5860</td>
+                <td style="width:1010px;text-align:left;">Development of diagnostics of muga and eri related silkworm in NE region </td>
+                <td>Sept.'11 - Aug.'13</td>
+              </tr>
+
+              <tr>
+              <td></td>
+                <td style="width:1010px;text-align:left;">Integrated Skill Development Scheme (ISDS)</td>
+                <td>Dec.'11 - Nov.'16</td>
+              </tr>
+
+               <tr>
+              <td>PRE 5852</td>
+                <td style="width:1010px;text-align:left;">Forecasting and forewarning for pest and diseases of muga host plants and silkworm </td>
+                <td>Jan.'11 - Dec.'13</td>
+              </tr>
+
+               <tr>
+              <td>AIB 5851</td>
+                <td style="width:1010px;text-align:left;">Development of high yielding muga silkworm breed through population improvement </td>
+                <td>Feb.'11 - Dec.'15</td>
+              </tr>
+
+               <tr>
+              <td>PRP-5862</td>
+                <td style="width:1010px;text-align:left;">Screening of microbial flora (potential biofertilizer) of castor rhizosphere and development of INM package in ericulture</td>
+                <td>Aug. '12 - July '15</td>
+              </tr>
+
+               <tr>
+              <td>ARC 5864</td>
+                <td style="width:1010px;text-align:left;"> Studies on the insect fauna associated with muga-ecosystem in North East India with emphasis on the illustrated diagnostics</td>
+                <td>Aug. '12 - July '15</td>
+              </tr>
+
+              <tr>
+              <td>AIP 5861</td>
+                <td style="width:1010px;text-align:left;"> Molecular approaches in characterization and utilization of gut microflora from muga silkworm Antheraea assamensis for enhancing productivity of muga culture in North Eastern India (In collaboration with IARI, New Delhi).</td>
+                <td>June '12 - May '15</td>
+              </tr>
+
+               <tr>
+              <td>MOE 5863</td>
+                <td style="width:1010px;text-align:left;">Sustainable Rural livelihood: adoption and refinement of improved technologies of eri culture in Brahmaputra valley of Assam [Women Scientist Fellowship Scheme].</td>
+                <td>Dec. '12 - Nov.'14</td>
+              </tr>
+
+               <tr>
+              <td>PRP-5855</td>
+                <td style="width:1010px;text-align:left;">Identification of stable source of resistance against major foliar diseases of muga host plants som (Persea bombycina) .</td>
+                <td>Sept.'11 - Aug.'14</td>
+              </tr>
+
+              <tr>
+              <td>AIP-5850</td>
+                <td style="width:1010px;text-align:left;">Isolation, identification and characterization of insect stimulants from the muga silkworm host plants and its functional properties.</td>
+                <td>May.'09 - Dec.'12</td>
+              </tr>
+
+              <tr>
+              <td>APS-5849</td>
+                <td style="width:1010px;text-align:left;">Studies on Improvement of Seed Production of Muga Silkworm, Antheraea assamensis Helfer.</td>
+                <td>2009-2012</td>
+              </tr>
+
+              <tr>
+              <td> DST, New Delhi</td>
+                <td style="width:1010px;text-align:left;">Endocrine regulation of reproduction & enhancement of fecundity in the muga silkworm.</td>
+                <td> Jan 2009-Dec 2012</td>
+              </tr>
+
+                <tr>
+              <td>PIP-5838</td>
+                <td style="width:1010px;text-align:left;">Selection of promising som, Persea bombycina Kost, genotypes for improvement of muga cocoon production in N. E. India.</td>
+                <td>April 2005 - March 2011</td>
+              </tr>
+
+              <tr>
+              <td>PIT 5837</td>
+                <td style="width:1010px;text-align:left;">Micro propagation of Muga host plant Som (Persea bombycina Kost).</td>
+                <td>Oct. 2005 - March. 2010</td>
+              </tr>
+
+              <tr>
+              <td>PPS-5839</td>
+                <td style="width:1010px;text-align:left;">Characterization of soils in different muga growing areas of Assam in relation to productivity.</td>
+                <td>April 2005 - March 2010</td>
+              </tr>
+
+              <tr>
+              <td>PIT-5848</td>
+                <td style="width:1010px;text-align:left;">Evaluation of superior genotypes of castor (Ricinus communis L) for eri silkworm rearing.</td>
+                <td>Oct. 2008 - Sept. 2010 </td>
+              </tr>
+
+               <tr>
+              <td>AIP-5844</td>
+                <td style="width:1010px;text-align:left;">Inddor rearing of Muga silkworm, Antheraea assamensis (Helfer) (Lepidoptera : Saturniidae).</td>
+                <td>April 2006 - March 2010</td>
+              </tr>
+
+                <tr>
+              <td>AIP-3371</td>
+                <td style="width:1010px;text-align:left;"> Formulation of viable semi-synthetic diets for young instar Vanya silkworms, viz., Antheraea assamensis Helfer (Muga) and Samia ricini Donovan (Eri) (Collaboration with CSRTI, Mysore).</td>
+                <td>June 2006 - March 2010</td>
+              </tr>
+
+              <tr>
+              <td>APR 5845</td>
+                <td style="width:1010px;text-align:left;"> In situ Conservation of muga silkworm A. assamensis Helfer.</td>
+                <td>March 2006 - March 2011</td>
+              </tr>
+
+              <tr>
+              <td>ARP 5846</td>
+                <td style="width:1010px;text-align:left;">Production and evaluation of A. assamensis Helfer hybrids.</td>
+                <td>April 2006 - March 2011</td>
+              </tr>
+
+              <tr>
+              <td>AIB-5847</td>
+                <td style="width:1010px;text-align:left;">Development of eri silkworm Samia ricini (Donovan) breeds with higher fecundity and shell weight.</td>
+                <td>Sept. 2006 - March. 2010</td>
+              </tr>
+
+              <tr>
+              <td>PPA001(A)</td>
+                <td style="width:1010px;text-align:left;">Development of package of practices for intercropping in muga host plants.</td>
+                <td>April 1997- March 2000</td>
+              </tr>
+
+              <tr>
+              <td>PIP001</td>
+                <td style="width:1010px;text-align:left;">Improvement in quality and productivity of muga host plants.</td>
+                <td>April 1997- March 2000</td>
+              </tr>
+
+               <tr>
+              <td>APS 5812</td>
+                <td style="width:1010px;text-align:left;">Studies on grainage technique and reproductive structure of muga silkworm.</td>
+                <td>April 1997- March 2001</td>
+              </tr>
+
+              <tr>
+              <td>APS 002</td>
+                <td style="width:1010px;text-align:left;">Studies on factors responsible for induction of pupal diapause in Antheraea assamensis through survey in natural habitat.</td>
+                <td>April 1997- March 2000</td>
+              </tr>
+
+              <tr>
+              <td>APR 001</td>
+                <td style="width:1010px;text-align:left;">Stabilization of muga seed crop through improved rearing technology.</td>
+                <td>April 1997- March 2000</td>
+              </tr>
+
+              <tr>
+              <td>PIP001</td>
+                <td style="width:1010px;text-align:left;">Evaluation of suitable variety of castor.</td>
+                <td>April 1999- March 2000</td>
+                </tr>
+
+                 <tr>
+              <td>AIA001</td>
+                <td style="width:1010px;text-align:left;">Breeding for improvement of eri silkworm .</td>
+                <td>April 1997- March 2000</td>
+              </tr>
+
+               <tr>
+              <td>APS 003</td>
+                <td style="width:1010px;text-align:left;">Standardization of embryo isolation technique and identification of cold resistant stages in muga silkworm .</td>
+                <td>April 1998- March 2001</td>
+              </tr>
+
+               <tr>
+              <td>PIB 6001</td>
+                <td style="width:1010px;text-align:left;">Integrated plantation system of castor and kesseru for eri culture.</td>
+                <td>April 2000-March 2001</td>
+              </tr>
+
+              <tr>
+              <td>PPA 001</td>
+                <td style="width:1010px;text-align:left;">Development of package of practices for the effect of NPKon soalu plantation.</td>
+                <td> April 1997-April 2001</td>
+              </tr>
+
+              <tr>
+              <td> MOE 5823</td>
+                <td style="width:1010px;text-align:left;">Socio-economic  and productivity studies in muga culture .</td>
+                <td> April, 2000 -Sept,2001</td>
+              </tr>
+
+
+              <tr>
+              <td>PRP 5818</td>
+                <td style="width:1010px;text-align:left;">Studies on the major diseases and pests of muga food plant som.</td>
+                <td>April 2000-March 2002</td>
+              </tr>
+
+              <tr>
+              <td>APS 5817</td>
+                <td style="width:1010px;text-align:left;">Standardization of technology for improvement of yield and quality of muga silkworm seed.</td>
+                <td> June 2000-May 2002</td>
+              </tr>
+
+              <tr>
+              <td>APS 6002</td>
+                <td style="width:1010px;text-align:left;">Standardization of eri silkworm seed production technique.</td>
+                <td>April 2000-March 2002</td>
+              </tr>
+
+
+              <tr>
+              <td>ARE 001</td>
+                <td style="width:1010px;text-align:left;">Studies on pests of muga silkworm.</td>
+                <td>April 1997-August 2002</td>
+              </tr>
+
+               <tr>
+              <td>PIB 5814</td>
+                <td style="width:1010px;text-align:left;">Studies on propagation of different cultivers of som.</td>
+                <td> April 2000- March 2003</td>
+              </tr>
+
+              <tr>
+              <td>ARP 5815</td>
+                <td style="width:1010px;text-align:left;">Studies on the major pests and diseases of muga silkworm.</td>
+                <td>April 2000-March 2003</td>
+              </tr>
+
+              <tr>
+              <td>PIB 6003 (B)</td>
+                <td style="width:1010px;text-align:left;">Improvement of eri host plant leaf yield and quality .</td>
+                <td>April 2000-March 2003</td>
+              </tr>
+
+              <tr>
+              <td>APS 6004</td>
+                <td style="width:1010px;text-align:left;">Improvement of eri silkworm crop production.</td>
+                <td>April 2000-March 2003</td>
+              </tr>
+
+              <tr>
+              <td>MOE 5824</td>
+                <td style="width:1010px;text-align:left;">Study on level of technology adoption among differrent group of farmers and their impact on production of muga cocoons.</td>
+                <td> June 2002-May 2003</td>
+              </tr>
+
+              <tr>
+              <td>APR 5821</td>
+                <td style="width:1010px;text-align:left;">Studies on improvement of rearing technology for production of quality cocoons of muga silkworm.</td>
+                <td> April 2000-May 2003</td>
+              </tr>
+
+              <tr>
+              <td>MOE 5820 (A)</td>
+                <td style="width:1010px;text-align:left;">Development of multiple sericulture farming system.</td>
+                <td> April 2000-June 2003</td>
+              </tr>
+
+                <tr>
+              <td>DBT</td>
+                <td style="width:1010px;text-align:left;">Digitized inventory on animal resources- Muga and Eri silkworm.</td>
+                <td>Sept.2002-March 2004</td>
+              </tr>
+
+               <tr>
+              <td>MOE 5820 (B)</td>
+                <td style="width:1010px;text-align:left;">Development of multiple sericulture farming system.</td>
+                <td>Sept. 2001-March. 2004</td>
+              </tr>
+
+              <tr>
+              <td>MOE 5828</td>
+                <td style="width:1010px;text-align:left;">Assessment of integrated technology package for sustainable development in muga culture under farmer's condition.</td>
+                <td>April 2003-March 2005</td>
+              </tr>
+              
+               <tr>
+              <td>ARP 5825</td>
+                <td style="width:1010px;text-align:left;">Investigation of pebrine disease in muga silkworm A. assamensis Helfer.</td>
+                <td>June 2002-May 2006</td>
+              </tr>
+
+              <tr>
+              <td>PIB 6003 (A)</td>
+                <td style="width:1010px;text-align:left;">Improvement in productivity of Eri Host Plant (Castor).</td>
+                <td>April 2002-Sept. 2005</td>
+              </tr>
+              
+              <tr>
+              <td>APS 5822</td>
+                <td style="width:1010px;text-align:left;">Evaluation of suitable package of practices for muga seed crop rearing .</td>
+                <td>April, 2003 -March,2006</td>
+              </tr>
+
+              <tr>
+              <td>PIB 4637</td>
+                <td style="width:1010px;text-align:left;">Quantitative and qualitative improvement of muga host plant P. bombycina Kost through polyploidy.</td>
+                <td>Aug. 2002 - July. 2006</td>
+              </tr>
+
+              <tr>
+              <td>AIE 5827</td>
+                <td style="width:1010px;text-align:left;">Survey, collection, conservation and characterization of muga silkworm, A.  assamensis Helfer.</td>
+                <td>Oct. 2002 -Aug. 2006</td>
+              </tr>
+
+              <tr>
+              <td>AIE 6005</td>
+                <td style="width:1010px;text-align:left;">Survey, collection, characterization and documentation of eri silkworm germplasm.</td>
+                <td>April 2003 -March 2007</td>
+              </tr>
+
+              <tr>
+              <td>BPC 5826</td>
+                <td style="width:1010px;text-align:left;">Muga-based Integrated Farming System (MIFS).</td>
+                <td>April 2004-March 2007</td>
+              </tr>
+
+              <tr>
+              <td>PRP 5831</td>
+                <td style="width:1010px;text-align:left;">Studies on control of stem borer, Zeuzera indica, a pest of muga host plants, Som and Soalu.</td>
+                <td>April 2004-March 2007</td>
+              </tr>
+
+              <tr>
+              <td>MOE 6006</td>
+                <td style="width:1010px;text-align:left;">Technology assessment and refinement for sustainable development in eri cocoon production in the Brahmaputra valley of Assam.</td>
+                <td>April 2004-March 2007</td>
+              </tr>
+
+              <tr>
+              <td>MOE 6007</td>
+                <td style="width:1010px;text-align:left;">Popularization of improved eri spinning device through demonstration and training at farmer’s level.</td>
+                <td>July 2004-March 2007</td>
+              </tr>
+
+
+              <tr>
+              <td> ARP 5830</td>
+                <td style="width:1010px;text-align:left;">Integrated management of uzifly, a pest of muga silkworm.</td>
+                <td> April 2004-May 2007</td>
+              </tr>
+
+
+              <tr>
+              <td>PIB 5813</td>
+                <td style="width:1010px;text-align:left;">Development of organic farming system of muga host plant Som (Persea bombycina Kost ).</td>
+                <td>June 2004 - July 2007</td>
+              </tr>
+
+              <tr>
+              <td>AIG 3323</td>
+                <td style="width:1010px;text-align:left;">Charcterization of eri silkworm (Samia ricini) with morphological characters and molecular markers.</td>
+                <td>Jan. 2005 -Dec.2007</td>
+              </tr>
+
+              <tr>
+              <td>PIG 5829</td>
+                <td style="width:1010px;text-align:left;">Genome analysis in muga silkworm host plants (Som & Soalu): DNA profiling of certain elite genotypes using molecular markers and development of mapping populations.</td>
+                <td>Jan. 2004 - Dec.2007</td>
+              </tr>
+
+              <tr>
+              <td> BT/PR/5233/PDB/19/116/2004</td>
+                <td style="width:1010px;text-align:left;">Assessment of genetic variability of muga silk-worm (Antheraea assamensis) populations using micro-satellite markers developed at CDFD, Hyderabad.</td>
+                <td>Jan. 2005 - March 2008</td>
+              </tr>
+
+
+              <tr>
+              <td>PIB 5840</td>
+                <td style="width:1010px;text-align:left;">Development of muga and eri based intercropping system .</td>
+                <td>Nov. 2005 - Aug. 2008</td>
+              </tr>
+
+                <tr>
+              <td>SAN No. 102/IFD/SAN/1709/2005-06</td>
+                <td style="width:1010px;text-align:left;">Phylogeography of Antheraea mylitta and Antheraea assamensis.</td>
+                <td>Oct. 2005 -Sept. 2008</td>
+              </tr>
+
+              <tr>
+              <td>PIT 5842</td>
+                <td style="width:1010px;text-align:left;">Development of protocol for clonal propagation of quality planting stock of Som, Persea bombycina (King ex. Hook F) Kost.</td>
+                <td>April 2006 - March 2009</td>
+              </tr>
+
+              <tr>
+              <td>AIP 5843</td>
+                <td style="width:1010px;text-align:left;">Stabilization of diapause strain in muga silkworm.</td>
+                <td>April 2006 - March 2009</td>
+              </tr>
+
+              <tr>
+              <td> SAN No. 102/IFD/SAN/PRO871/2006-07</td>
+                <td style="width:1010px;text-align:left;">Identification, characterization and diagnosis of some important Muga silkworm diseases (Collaboration with Assam Agricultural University (AAU), Jorhat, Assam).</td>
+                <td>Oct. 2007 - Nov. 2009</td>
+              </tr>
+
+              <tr>
+              <td> NEC/IND/AS38/2005</td>
+                <td style="width:1010px;text-align:left;">Development and standardization of an improved process of cooking and reeling of Muga cocoons.</td>
+                <td> April 2006 -Dec. 2009</td>
+              </tr>
+
+              <tr>
+              <td>PRP-5841</td>
+                <td style="width:1010px;text-align:left;">Studies on leaf blight disease of muga food plant Litsea monopetela (Roxb).</td>
+                <td>Oct. 2005 -Nov.2009</td>
+              </tr>
+
+             </table></center>
+             </div>
+      		</div>
+      		<!--info div_right-->
+      
+      		
+      	
+      		<!--footer divs-->
+      		<footer id="foot">
+       
+      		
+      		<div id="copy">Copyright &copy; All right reserved CMER&TI (2015 - 2016)</div>
+      	
+      
+      		</footer>
+      		
+     
+      
+    </body>
+
+</html>

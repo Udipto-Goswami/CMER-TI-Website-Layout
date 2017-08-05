@@ -1,0 +1,380 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>pub_rp</title>
+    <link rel="stylesheet"type="text/css" href="sample_css.css">
+    <link rel="stylesheet"type="text/css" href="menu_s.css">
+<!--......................................the slideshow........................................................-->
+	<style type="text/css">
+	#slideshow { 
+		
+     
+    position:relative;
+    width: 1485px; 
+    height: 1449px; 
+    padding: 0px; 
+ 
+
+    
+}
+
+#slideshow > div { 
+    position: absolute; 
+    top: 0px; 
+    left: 0px; 
+    right: 10px; 
+    bottom: 10px; 
+}
+
+
+table, th, td {
+    border: 1px solid #4CAF50;;
+    border-collapse: collapse;
+    text-align: center;
+
+}
+th {
+    background-color: #4CAF50;;
+    color: black;
+}
+td{
+  width:323px;
+}
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+	$("#slideshow > div:gt(0)").hide();
+
+setInterval(function() { 
+  $('#slideshow > div:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('#slideshow');
+},  5000);
+	</script>
+
+<!--....................................end of slideshow.............................................................-->
+
+<script type="text/javascript">
+    var ul;
+var li_items; 
+var li_number;
+var image_number = 0;
+var slider_width = 0;
+var image_width;
+var current = 0;
+function init(){	
+	ul = document.getElementById('image_slider');
+	li_items = ul.children;
+	li_number = li_items.length;
+	for (i = 0; i < li_number; i++){
+		// nodeType == 1 means the node is an element.
+		// in this way it's a cross-browser way.
+		//if (li_items[i].nodeType == 1){
+			//clietWidth and width???
+			image_width = li_items[i].childNodes[0].clientWidth;
+			slider_width += image_width;
+			image_number++;
+	}
+	
+	ul.style.width = parseInt(slider_width) + 'px';
+	slider(ul);
+}
+
+function slider(){		
+		animate({
+			delay:17,
+			duration: 3000,
+			delta:function(p){return Math.max(0, -1 + 2 * p)},
+			step:function(delta){
+					ul.style.left = '-' + parseInt(current * image_width + delta * image_width) + 'px';
+				},
+			callback:function(){
+				current++;
+				if(current < li_number-1){
+					slider();
+				}
+				else{
+					var left = (li_number - 1) * image_width;					
+					setTimeout(function(){goBack(left)},3000); 				
+					setTimeout(slider, 3000);
+				}
+			}
+		});
+}
+function goBack(left_limits){
+	current = 0;	
+	setInterval(function(){
+		if(left_limits >= 0){
+			ul.style.left = '-' + parseInt(left_limits) + 'px';
+			left_limits -= image_width / 10;
+		}	
+	}, 17);
+}
+function animate(opts){
+	var start = new Date;
+	var id = setInterval(function(){
+		var timePassed = new Date - start;
+		var progress = timePassed / opts.duration
+		if(progress > 1){
+			progress = 1;
+		}
+		var delta = opts.delta(progress);
+		opts.step(delta);
+		if (progress == 1){
+			clearInterval(id);
+			opts.callback();
+		}
+	}, opts.dalay || 17);
+}
+window.onload = init;
+</script>
+
+  </head>
+    <body>
+    	<div id="slideshow" style="position:absolute">
+    	<div>
+    		 <img src="Aviary Photo_131093630460243541.png">
+  		</div>
+  		 <div>
+    		 <img src="Aviary Photo_131093630140229334.png">
+  		 </div>
+
+  		<div>
+    		 <img src="Aviary Photo_131093630014510153.png">
+  		 </div>
+  		<div>
+    		 <img src="Aviary Photo_131093629635620158.png">
+  		 </div>
+  		<div>
+    		 <img src="Aviary Photo_131093629298581088.png">
+  		 </div>
+		</div>
+
+      <div class="d1" style="position:absolute;margin:auto;">
+      		<!--title divs-->
+
+
+      		<header>
+            <div class="d11" style="opacity:0.2px ;box-shadow:0px 0px 9px -3px black;">
+
+            </div>
+            <div class="d11" style="background-color:transparent;">
+            <div style="position:absolute;">
+            <img src="red.png" style="height:190px;width:190px; margin-left:20px;">
+            </div>
+            <div style="color:black;font-family:Tahoma;font-size:34px;text-align:center;position:absolute;margin-top:30px;margin-left:170px"><b>Central Muga Eri Research and Training Institute (CMER&TI)</b></div>
+
+            <div style="color:black;font-family:Tahoma;font-size:20px;position:absolute;margin-top:110px;margin-left:470px;">Lahdoigarh-785700,Jorhat( ASSAM )</div>
+            <div style="color:black;font-family:Tahoma;font-size:20px;position:absolute;margin-top:140px;margin-left:390px; text-align:center;">Central Silk Board,Ministry Of Textile:Govt. of India
+            <br>
+             <b>( AN ISO 9001 : 2008 Certified Institute )</b>
+            </div>
+            </div>
+          </header>
+
+      		<div style="margin-left:207px; margin-top:210px; position:absolute;">
+      			<div class="dropdown">
+  					<a href="sample_1.html" style="text-decoration:none;"><button class="dropbtn">Home</button></a>
+ 				 </div>
+
+ 				<div class="dropdown"  style="margin-left:121px;">
+ 				 <button class="dropbtn">About</button>
+ 					 <div class="dropdown-content">
+  						  <a href="about_us_intro.html">Introduction</a>
+  						  <a href="about_us_back.html">Background</a>
+  						  <a href="about_us_man.html">Mandate</a>
+  						  <a href="about_us_act.html">Activities</a>
+  						  <a href="Vision for 2020.pdf">Vision Plan 2020</a>
+  						  
+ 					 </div>
+ 				</div>
+
+ 				<div class="dropdown"  style="margin-left:242px;">
+ 				 <button class="dropbtn">Organisation</button>
+ 					 <div class="dropdown-content">
+  						  <a href="org_setup.html">Org Setup</a>
+  						 
+  						  
+ 					 </div>
+ 				</div>
+ 				<div class="dropdown"  style="margin-left:362.5px;">
+ 				 <button class="dropbtn">Division</button>
+ 					 <div class="dropdown-content">
+  						  <a href="div_rd.html">R & D</a>
+  						  <a href="div_admin.html">Administrative</a>
+  						   <a href="div_est.html">Establishment</a>
+  						    <a href="div_o.html">Others</a>
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:483.5px;">
+ 				 <button class="dropbtn">Publication</button>
+ 					 <div class="dropdown-content">
+  						  <a href="pap.html">Publications & Patents</a>
+  						  <a href="rp.html"> Research Publication</a>
+  						  <a href="bm.html"> Books & Manuals</a>
+  						  <a href="tn.html"> Tech Notes</a>
+  						  <a href="lp.html"> Leaflets & Pamphlets</a>
+                 <a href="nl.html">Newsletters</a>
+
+  					  
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:604.5px;">
+ 				 <button class="dropbtn">Technologies</button>
+ 					 <div class="dropdown-content">
+  						 <a href="tp.html">Tech & Patents</a>
+                <a href="Technologies of CMER&TI.pdf">Brief Details</a>
+                <a href="Course Wares-Muga.pdf">Muga Culcure</a>
+                <a href="Course Ware-Eri.pdf">Eri Culcure</a>
+                <a href="CMER&TI technologies  and their  implementation at field level.pdf">Tech & implementation</a>
+  						  
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:725px;">
+ 				 <button class="dropbtn">Projects</button>
+ 					 <div class="dropdown-content">
+  						   <a href="og.html">Ongoing</a>
+                <a href="cl.html">Concluded</a>
+  					
+  						  
+  						  
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:846px;">
+ 				 <a href="contact.html" style="text-decoration:none;"><button class="dropbtn">Contact Us</button></a>
+ 					 
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:966.5px;">
+ 				 <a href="gallery.html" style="text-decoration:none;"><button class="dropbtn">Gallery</button></a>
+ 					 
+ 				</div>
+  
+  </div>
+
+      		<div class="d12"></div>
+      		<!--info div_left-->
+      	<div class="d13" style="width:1073px; overflow:scroll">
+        <div class="d17" style="width:1053px;font-size:36px;margin-top:2px;"><b>RESEARCH PUBLICATIONS</b></div>
+         <div class="d17" style="width:1053px;font-size:22px;margin-top:88px;">
+                  <div style="color:#4CAF50;"><b>(2014-2015)</b></div>
+                  <ul style="text-align:left">
+                    <li> Ahmed, S.A., Sarkar, C.R., Sarmah, M.C., Ahmed, M. and Singh, N.I.  (2015) Rearing Performance and Reproductive Biology of Eri Silkworm, Samia ricini (Donovan) Feeding on Ailanthus Species and other promising food plants Advances in Biological Research 9 (1): 07-14.</li>
+                    <br>
+                    <br>
+                    <li> Bhuyan, P. M.  Sandilya, S. P., Gogoi, D. K. Neog, K. and Subramanian, S. (2014). Isolation and characterization of gut-bacteria of Muga Silkworm (Antheraea assamensis, Helfer) collected from different localities of Assam. Sericologia, 54 (1): 28-35.</li>
+                    <br>
+                    <br>
+                    <li> Bhuyan, P. M.  Sandilya, S. P. and Gogoi, D. K. (2014). Exploration of gut microbial diversity of Muga Silkworm, Antheraea assamensis, "Helfer and their characterization". Paper presented in the National seminar on "Biodiversity Conservation, Crisis and Sustainable Use" organized by N.N. Saikia College, Titabor, Assam on 29th and 30th September, 2014.</li>
+                    <br>
+                    <br>
+
+                    <li> Biswas N., Bagchi S.N., Gogoi A.K., Paliwal S. and Giridhar K. (2014) Studies on the rearing and grainage performance of muga silkworm, Antheraea assama during seed crops in Terai region of West Bengal,  Abstracts of 23rd International Congress on Sericulture and Silk Industry, Bangalore,  24th-27th November 2014, pp. 97.</li>
+                    <br>
+                    <br>
+
+                    <li> Borgohain, A., Sonowal, J., Chutia, M. and Das, R. (2014) Seasonal occurrence of fungal diversity in castor plant, Ricinus communis L. the primary food plant of eri silkworm, Samia ricini (Denovan). International Research Journal of Biological Science, 3(8):33-39</li>
+                    <br>
+                    <br>
+                    <li> Borgohain, A, Das, K and Chutia, M. (2014) Antibacterial activity of host plant volatiles against the bacterial pathogen of muga silkworm, Antheraea assamensis Helfer. In: Proceedings of the National seminar on Recent Developments in Natural Sciences, DKD College, Golaghat, Assam, pp153-156.</li>
+                    <br>
+                    <br>
+                    <li>  Borgohain, A., Das, R. Chutia, M., Bora, D. S. Samanta, R.,  Dutta, K. and  Sonowal, J. (2014) Characterization of cultural gut microflora in infected larvae of muga silkworm, Antheraea assamensis Helfer. Abstracts of  National seminar on "Unraveling plant-microbe interactions for supporting  plant health” held on 27-28, 2014 organized by  Indian society of mycology and plant pathology & Dept. of Botany, Gauhati Unversity, Assam.pp.14.</li>
+                    <br>
+                    <br>
+                    <li> Bhuyan PM, Sandilya SP, Gogoi DK, Neog K, Subramanian S (2014). Isolation and characterization gut-bacteria of muga silkworm, Antheraea assamensis Helfer collected from different localities of Assam. Sericologia, 54 (1): 28-35.</li>
+                    <br>
+                    <br>
+                    <li>  Chutia, B. C., Nath, C., Goswami, L. M. , Goswami, B.,  Gogoi, L. and Neog , K. (2014) Life history of Antheraea frithi Moore on Terminalia arjuna (Rosb.) W & A Syn in North Eastern Region of India. Proc. Natl Acad Sci, India  Biol Sci, DOI 10.1007/s40011-014-0411.</li>
+                    <br>
+                    <br>
+                    <li> Chutia, P. Kumar, R. and Khanikar D. P. (2014) Host plants relationship in terms of cocon colour and compactness of eri silkworm (Samia ricini). Biological Forum - An International Journal 6(2): 340-343.</li>
+                    <br>
+                    <br>
+                    <li> Das R, Choudhary B., Sankar M, Giridhar K (2014) Status of muga culture and technology adoption in Assam. Management of Natural resources for Sustainable Development: Challenges and opportunities, p 132-135.</li>
+                    <br>
+                    <br>
+                    <li> Giridhar K. and Neog, K. (2014) Trends and potential of eri and muga culture in North eastern states of India Indian Silk, 5 (5-7): 50-55.</li>
+                    <br>
+                    <br>
+                    <li>  Goswami, D., Singh N.I., Ahmed, M., Kumar R., Mech D. and Giridhar K. (2015) Impact of integrated chawki rearing technology on cocoon production of muga silkworm, Antheraea assamensis Helfer. Biological Forum, 7(1): 146-151.</li>
+                    <br>
+                    <br>
+                    <li> Ibotombi Singh N, Goswami D, Ahmed M, Giridhar K (2014)  Efficacy of sodium hypochlorite in controlling viral and bacterial diseases in muga silkworm, Antheraea assamensis Helfer. Journal of Applied Biology & Biotechnology, 2 (02): 012-015</li>
+                    <br>
+                    <br>
+                    <li>Mech, D.  Ahmed M. and Kumar, R. (2015) Indigenous technical knowledge associated in muga culture. Biological Forum - An International Journal, 7(1): 1-6.</li>
+                    <br>
+                    <br>
+                    <li>Neog, K. Unni, Bala G., Dey, S., Renthlei, CV. Z. Eswara Reddy, S. G. Dutta,  P., Sonowal P. and Rajan, R. K. (2014). Studies on the endocrine regulation of reproduction and ultra structure of brain and reproductive organs of muga silkworm Antheraea assamensis, Helfer, World Journal of Pharmacy and Pharmaceutical Sciences, Volume 3, (1).</li>
+                    <br>
+                    <br>
+                    <li>  Sarmah MC, Sarkar BN, Ahmed SA, Giridhar K (2014) Performance of C2 breed of eri silkworm, Samia ricini (Donovan) in different food plants. Entomology and Applied Science [Accepted].</li>
+                    <br>
+                    <br>
+                    <li>  Sarmah M.S., Sarkar S.A., Ahmed S.A. and Giridhar K. (2014) Advances in Research and Technology development in eri culture- A Review, 23rd International Congress on Sericulture and Silk Industry, Bangalore,  24th-27th November 2014, Abstracts, pp 79.</li>
+                    <br>
+                    <br>
+                    <li>  Singh G.B, Gogoi A.K. and Giridhar K. (2014) Illustrated manual  of muga silkworm management and crop protection, Regional Muga Research Station, Boko, Assam, 24 pp.</li>
+                    <br>
+                    <br>
+                    <li>  Sonowal L, Singh GP (2014) Demonstration programme at Bamunigaon, Falafung and Batakuchi, Kamrup Assam. Indian Silk, 4: 50.</li>
+
+                    <br>
+                    <br>
+                    <li> Wankhade, L. N. Barman, H. D. Rai, M. M. Rathos, M. K. (2014) Performance of eri silkworm for commercialization in Vidarbha region, Maharastra Journal of Advanced Zoology, 35(1): 26-31.</li>
+                    <br>
+                    <br>
+                 
+                    </ul>
+
+                    <div style="color:#4CAF50;"><b>Research papers in Seminar, Symposium, Conference</b></div>
+                    <ul style="text-align:left;">
+                    <li> Babu, M. R. Angadi, B.S. and Raviverma, T. (2014) Enaluation of certainm genotypes of eri silkworm  Samia ricini (Donovan) fed with castor and tapioca under sub-tropical condition of Andhra Pradesh and Telengana  Abstracts of 23rd International Congress on Sericulture and Silk Industry held on 24th-27th November, 2014 at Bangalore, pp. 78.</li>
+                    <br>
+                    <br>
+                    <li>  Das, R. Gogoi, A.K.,  Chutia M. and Das K.  (2014) Emerging disease and pest scenario in muga silkworm, Antheraea assamensis   under the impact of climate change. Abstracts of 23rd International Congress on Sericulture and Silk Industry held on 24th-27th November, 2014 at Bangalore, pp. 81.</li>
+                    <br>
+                    <br>
+                    <li> Kumar, R. Rajkhowa, G., Chutia, P., Chodhury, B. and Giridhar K. (2014) North East Indian wild silk moth (Lepidoptera : Saturniidae) - diversity, distribution and clarification through illustrated genitalic atlas. Abstracts of 23rd International Congress on Sericulture and Silk Industry, Bangalore, 24th-27th November 2014, pp 99.</li>
+                    <br>
+                    <br>
+                    <li>  Sandilya, S. P., Bhuyan, P. M. and Gogoi, D. K. (2014) Isolation and characterization of promising Azotobacter sp. for the development of an "INM package in sustainable eri culture". Paper presented in the National seminar on "Biodiversity Conservation, Crisis and Sustainable Use" organized by NN Saikia College, Titabor, Assam on 29th and 30th September, 2014.</li>
+                    <br>
+                    <br>
+                    <li>  Singh, G .P. and Gogoi, A. K. (2014) Evaluation of morphotypes of som, Persea bombycina Kost for the rearing of muga silkworm Antheraea assamensis Helfer (Lepidoptera: Saturniidae). Abstracts of 23rd International Congress on Sericulture and Silk Industry held on 24th-27th November, 2014 at Bangalore, pp. 96.</li>
+                    <br>
+                    <br>
+                    <li> Vemananda Reddy, G. Rajanna, K. L., Vijaya Kumari, K.M., Angadi, B. S. Sarkar, B. N. and Sarmah, M. C. (2014) Development of preservation techniques for eri silkworm eggs Samia ricini (Donovan). Abstractsof 23rd International Congress on Sericulture and Silk Industry held on 24th-27th November, 2014 at Bangalore, pp. 94.</li>
+                    <br>
+                    <br>
+                    </ul>
+             </div>
+      		</div>
+      		<!--info div_right-->
+      
+      		
+      	
+      		<!--footer divs-->
+      		<footer id="foot">
+       
+      		
+      		<div id="copy">Copyright &copy; All right reserved CMER&TI (2015 - 2016)</div>
+      	
+      
+      		</footer>
+      		
+     
+      
+    </body>
+
+</html>

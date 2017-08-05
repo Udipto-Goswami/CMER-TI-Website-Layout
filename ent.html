@@ -1,0 +1,517 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>about_us_intro</title>
+    <link rel="stylesheet"type="text/css" href="sample_css.css">
+    <link rel="stylesheet"type="text/css" href="menu_s.css">
+<!--......................................the slideshow........................................................-->
+	<style type="text/css">
+	#slideshow { 
+		
+     
+    position:relative;
+    width: 1485px; 
+    height: 1449px; 
+    padding: 0px; 
+ 
+
+    
+}
+
+#slideshow > div { 
+    position: absolute; 
+    top: 0px; 
+    left: 0px; 
+    right: 10px; 
+    bottom: 10px; 
+}
+
+
+table, th, td {
+    border: 1px solid #4CAF50;;
+    border-collapse: collapse;
+    text-align: center;
+     width:823px;
+
+}
+th {
+    background-color: #4CAF50;;
+    color: black;
+}
+
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+	$("#slideshow > div:gt(0)").hide();
+
+setInterval(function() { 
+  $('#slideshow > div:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('#slideshow');
+},  5000);
+	</script>
+
+<!--....................................end of slideshow.............................................................-->
+
+<script type="text/javascript">
+    var ul;
+var li_items; 
+var li_number;
+var image_number = 0;
+var slider_width = 0;
+var image_width;
+var current = 0;
+function init(){	
+	ul = document.getElementById('image_slider');
+	li_items = ul.children;
+	li_number = li_items.length;
+	for (i = 0; i < li_number; i++){
+		// nodeType == 1 means the node is an element.
+		// in this way it's a cross-browser way.
+		//if (li_items[i].nodeType == 1){
+			//clietWidth and width???
+			image_width = li_items[i].childNodes[0].clientWidth;
+			slider_width += image_width;
+			image_number++;
+	}
+	
+	ul.style.width = parseInt(slider_width) + 'px';
+	slider(ul);
+}
+
+function slider(){		
+		animate({
+			delay:17,
+			duration: 3000,
+			delta:function(p){return Math.max(0, -1 + 2 * p)},
+			step:function(delta){
+					ul.style.left = '-' + parseInt(current * image_width + delta * image_width) + 'px';
+				},
+			callback:function(){
+				current++;
+				if(current < li_number-1){
+					slider();
+				}
+				else{
+					var left = (li_number - 1) * image_width;					
+					setTimeout(function(){goBack(left)},3000); 				
+					setTimeout(slider, 3000);
+				}
+			}
+		});
+}
+function goBack(left_limits){
+	current = 0;	
+	setInterval(function(){
+		if(left_limits >= 0){
+			ul.style.left = '-' + parseInt(left_limits) + 'px';
+			left_limits -= image_width / 10;
+		}	
+	}, 17);
+}
+function animate(opts){
+	var start = new Date;
+	var id = setInterval(function(){
+		var timePassed = new Date - start;
+		var progress = timePassed / opts.duration
+		if(progress > 1){
+			progress = 1;
+		}
+		var delta = opts.delta(progress);
+		opts.step(delta);
+		if (progress == 1){
+			clearInterval(id);
+			opts.callback();
+		}
+	}, opts.dalay || 17);
+}
+window.onload = init;
+</script>
+
+  </head>
+    <body>
+    	<div id="slideshow" style="position:absolute">
+    	<div>
+    		 <img src="Aviary Photo_131093630460243541.png">
+  		</div>
+  		 <div>
+    		 <img src="Aviary Photo_131093630140229334.png">
+  		 </div>
+
+  		<div>
+    		 <img src="Aviary Photo_131093630014510153.png">
+  		 </div>
+  		<div>
+    		 <img src="Aviary Photo_131093629635620158.png">
+  		 </div>
+  		<div>
+    		 <img src="Aviary Photo_131093629298581088.png">
+  		 </div>
+		</div>
+
+      <div class="d1" style="position:absolute;margin:auto;">
+      		<!--title divs-->
+
+
+      		<header>
+            <div class="d11" style="opacity:0.2px ;box-shadow:0px 0px 9px -3px black;">
+
+            </div>
+            <div class="d11" style="background-color:transparent;">
+            <div style="position:absolute;">
+            <img src="red.png" style="height:190px;width:190px; margin-left:20px;">
+            </div>
+            <div style="color:black;font-family:Tahoma;font-size:34px;text-align:center;position:absolute;margin-top:30px;margin-left:170px"><b>Central Muga Eri Research and Training Institute (CMER&TI)</b></div>
+
+            <div style="color:black;font-family:Tahoma;font-size:20px;position:absolute;margin-top:110px;margin-left:470px;">Lahdoigarh-785700,Jorhat( ASSAM )</div>
+            <div style="color:black;font-family:Tahoma;font-size:20px;position:absolute;margin-top:140px;margin-left:390px; text-align:center;">Central Silk Board,Ministry Of Textile:Govt. of India
+            <br>
+             <b>( AN ISO 9001 : 2008 Certified Institute )</b>
+            </div>
+            </div>
+          </header>
+          
+      		<div style="margin-left:207px; margin-top:210px; position:absolute;">
+      			<div class="dropdown">
+  					<a href="sample_1.html" style="text-decoration:none;"><button class="dropbtn">Home</button></a>
+ 				 </div>
+
+ 				<div class="dropdown"  style="margin-left:121px;">
+ 				 <button class="dropbtn">About</button>
+ 					 <div class="dropdown-content">
+  						  <a href="about_us_intro.html">Introduction</a>
+  						  <a href="about_us_back.html">Background</a>
+  						  <a href="about_us_man.html">Mandate</a>
+  						  <a href="about_us_act.html">Activities</a>
+  						  <a href="Vision for 2020.pdf">Vision Plan 2020</a>
+  						  
+ 					 </div>
+ 				</div>
+
+ 				<div class="dropdown"  style="margin-left:242px;">
+ 				 <button class="dropbtn">Organisation</button>
+ 					 <div class="dropdown-content">
+  						  <a href="org_setup.html">Org Setup</a>
+  						 
+  						  
+ 					 </div>
+ 				</div>
+ 				<div class="dropdown"  style="margin-left:362.5px;">
+ 				 <button class="dropbtn">Division</button>
+ 					 <div class="dropdown-content">
+  						  <a href="div_rd.html">R & D</a>
+  						  <a href="div_admin.html">Administrative</a>
+  						   <a href="div_est.html">Establishment</a>
+  						     <a href="div_o.html">Others</a>
+  						  
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:483.5px;">
+ 				 <button class="dropbtn">Publication</button>
+ 					 <div class="dropdown-content">
+  						  <a href="pap.html">Publications & Patents</a>
+  						  <a href="rp.html"> Research Publication</a>
+  						  <a href="bm.html"> Books & Manuals</a>
+  						  <a href="tn.html"> Tech Notes</a>
+  						  <a href="lp.html"> Leaflets & Pamphlets</a>
+                 <a href="nl.html">Newsletters</a>
+
+  					  
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:604.5px;">
+ 				 <button class="dropbtn">Technologies</button>
+ 					 <div class="dropdown-content">
+  						   <a href="tp.html">Tech & Patents</a>
+                <a href="Technologies of CMER&TI.pdf">Brief Details</a>
+                <a href="Course Wares-Muga.pdf">Muga Culcure</a>
+                <a href="Course Ware-Eri.pdf">Eri Culcure</a>
+                <a href="CMER&TI technologies  and their  implementation at field level.pdf">Tech & implementation</a>
+  						  
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:725px;">
+ 				 <button class="dropbtn">Projects</button>
+ 					 <div class="dropdown-content">
+  						   <a href="og.html">Ongoing</a>
+                <a href="cl.html">Concluded</a>
+  					
+  						  
+  						  
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:846px;">
+ 				 <a href="contact.html" style="text-decoration:none;"><button class="dropbtn">Contact Us</button></a>
+ 					 
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:966.5px;">
+ 				 <a href="gallery.html" style="text-decoration:none;"><button class="dropbtn">Gallery</button></a>
+ 					 
+ 				</div>
+  
+  </div>
+
+      		<div class="d12"></div>
+      		<!--info div_left-->
+           
+      	<div class="d13" style="width:1073px;overflow:scroll">
+              <div class="d17" style="width:1053px;"><b>EXTENSION NETWORK</b></div>  
+                <div class="d17" style="width:1053px;font-size:20px;margin-top:80px;text-align:center;">
+                <img src="ext.jpg">
+                <br>
+                 To facilitate effective transfer of technologies, developed by the institute and their validation at the field, three-tier extension system i.e. Regional Research Stations, Research Extension Centres (REC) and REC Sub-Units is adopted. The regional stations are located in major sericulture zones to carry out region and season specific research and to facilitate test verification and effective dissemination of laboratory findings to the field. The regional stations, along with the RECs under their control, are performing major works towards identification of technologies suitable to regional needs and their diffusion to field. The RECs and Sub-Units have the responsibilities of transferring technologies to the beneficiaries and also to provide all technological and input support to them.<br>
+                 <br>
+
+ 
+
+The Regional Muga Research Station (RMRS) is located in one of the major Muga growing zones of Assam at Boko in Kamrup district. The station has been carrying out region specific adaptive research suited to the regional requirements besides providing training to farmers and grass root level extension workers.
+<br><br>
+ 
+
+RECs for muga are located at Tura (Meghalaya), Coochbehar (West Bengal) and Lakhimpur (Assam). REC, Tura is sharing the responsibility of maintaining basic stocks of Muga silkworm.<br><br>
+
+ 
+
+There are two Regional Eri Research Stations (RERS) under the control of this institute. One of these is located at Mendipathar in Meghalaya and the other at Shadnagar in Andhra Pradesh. These stations conduct adaptive research to develop ericulture suited to the respective regions and also provide training to farmers.
+
+ <br><br>
+
+RECs for Eri are located at Diphu (Assam), Fatehpur (Uttar Pradesh) and Navsari (Gujarat).<br><br>
+
+ 
+
+REC Sub Units are functioning at Kokrajhar (Assam) and Himmat Nagar (Gujarat).<br>
+                  
+                </div>
+                 <div class="d17" style="width:1053px;margin-top:1200px"><b>EXTENSION ACTIVITIES</b></div>  
+                  <div class="d17" style="width:1053px;font-size:20px;margin-top:1278px;text-align:center;">
+                   Extension programmes as per the annual action plan is implemented by the Director through the Scientist-C (Extension) for the main Institute. Scientist-D, Scientist-C and Unit-in-Charge are responsible for implementation of the extension programmes for the respective units.<br><br>
+
+The Institute organizes various Extension Communication Programmes to disseminate technologies, enlighten the farmers on different aspects of improved host plant cultivation and silkworm rearing practices / technologies.<br><br>
+
+ 
+<ul style="text-align:left">
+<li> <b style=" color:#4CAF50">Vanya Resham Krishi Mela:</b> This is an interactive occasion where farmers, reelers, weavers etc. gathers and discuss with the scientists of Institute about the development technologies for increasing productivity, about specific problems associated within the culture, adoption of new technologies etc.</li><br>
+
+<li> <b style="color:#4CAF50"> Workshop:</b>It is held to discuss the prevalent field problems among the scientists and farmers. Refinement of the packages is made on the basis of feedback received from the farmers.</li><br>
+
+<li> <b style="color:#4CAF50">Field day / Farmers day:</b> It is held locally in potential sericulture areas. Dissemination of technology is made in consultation with departmental staff and farmers for solving the field problems.</li><br>
+
+<li><b style="color:#4CAF50"> Exhibition:</b> It is held to exhibit the technological finding/output such as improved varieties of food plants, improved silkworm races, improved reeling & spinning machines and diversified end products etc. among the public. The aim of exhibition is to create awareness among the rearers, reelers, spinners and weavers.</li><br>
+</ul>
+                 
+                 <b style="color:#4CAF50;font-size:24px">The RECs are also involved in the following activities viz</b><br><br>
+                 <center><table bordercolor:black; style="font-size:22px">
+                   <tr> 
+                     <th>MUGA</th>
+                     <th>ERI</th>
+                   </tr>
+                   <tr>
+                     <td>Muga silkworm rearing</td>
+                     <td> Eri silkworm rearing </td>
+                  </tr>
+                  <tr>
+                    
+                    <td> Muga cocoon production</td>
+                   <td> Eri cocoon production</td>
+                  </tr>
+                  <tr>
+                    <td>Muga seed (disease free layings) production</td>
+                    <td>Eri seed (disease free layings) production</td>
+                  </tr>
+                  <tr>
+                    <td> Muga dfls supply</td>
+                    <td> Eri dfls supply</td>
+                  </tr>
+                  <tr>
+                    <td>   Raising of  Som / Soalu seedlings</td>
+                    <td>   Raising  and supply of  Kesseru seedlings</td>
+                  </tr>
+                  <tr>
+                    <td>   Supply of Som / Soalu  seedlings / seeds</td>
+                    <td> Supply of  Kesseru / Castor seeds</td>
+                  </tr>
+                  <tr>
+                  <td colspan="2">Organize Farmers awareness camp, field days </td>
+                    
+                  </tr>
+                 </table></center>
+                 </div>
+
+ <div class="d17" style="width:1053px;margin-top:2237px"><b>TRAINING</b></div>  
+  <div class="d17" style="width:1053px;font-size:20px;margin-top:2315px;text-align:center;">
+
+  Training is one of the key functions of this research institute. Short term and capsule courses are conducted for development of human resources in both pre-cocoon and post cocoon sectors. Some of the training programmes conducted by CMER&TI are as follows
+<ul style="text-align:left">
+     <li>Peripatetic training of women in post-cocoon technology on cocoon stifling, reeling, spinning, re-reeling etc.</li>
+
+     <li>Farmers training on muga culture.</li>
+
+    <li> Farmers training on eri culture.</li>
+
+     <li>Capsule training programme for in-service staff of Sericulture Department of different States.</li>
+</ul>
+       </div>
+       <div class="d17" style="width:1053px;margin-top:2590px"><b>MANPOWER</b></div>
+       <div class="d17" style="width:1053px;font-size:20px;margin-top:2670px;text-align:center;">
+        
+       <center> <table>
+          <tr>
+            <th>NAME</th>
+            <th>Designation</th>
+          </tr>
+          <tr>
+            <td>Ranuma Das</td>
+            <td>Scientist-D</td>
+          </tr>
+          <tr>
+            <td>D. Mech </td>
+            <td>Scientist-D</td>
+
+          </tr>
+          <tr>
+            <td>S.A. Ahmed</td>
+            <td>Scientist-C</td>
+          </tr>
+          <tr>
+            <td>Vijay N</td>
+            <td>Scientist-B</td>
+          </tr>
+          <tr>
+            <td>Tofiqual Hussain</td>
+            <td>Technical Assistant </td>
+          </tr>
+          <tr>
+            <td>Simanta Saikia</td>
+            <td>Field Assistant </td>
+          </tr>
+        </table></center>
+       </div>
+ <div class="d17" style="width:1053px;margin-top:2928px"><b>Regional Muga Research Stations (RMRS), Boko</b></div>
+           <div class="d17" style="width:1053px;font-size:20px;margin-top:3007px;text-align:center;">
+           <center><table>
+             <tr>
+              <th>NAME</th>
+            <th>Designation</th>
+             </tr>
+             <tr>
+               <td>Somesh Paliwal </td>
+               <td> Scientist-D</td>
+             </tr>
+             <tr>
+               <td>A.K. Gogoi</td>
+               <td>Scientist-D</td>
+             </tr>
+             <tr>
+               <td>L. Sonowal</td>
+               <td>Scientist-B</td>
+             </tr>
+           </table></center>
+          </div>
+
+<div class="d17" style="width:1053px;margin-top:3178px"><b>Regional Eri Research Station (RERS), Shadnagar</b></div>
+ <div class="d17" style="width:1053px;font-size:20px;margin-top:3257px;text-align:center;">
+<center> <table>
+             <tr>
+              <th>NAME</th>
+            <th>Designation</th>
+             </tr>
+             <tr>
+               <td>T. Ravi Verma</td>
+               <td>Scientist-D</td>
+             </tr>
+ </table></center>
+ </div>
+ <div class="d17" style="width:1053px;margin-top:3370px"><b>Regional Eri Research Station (RERS), Mendipathar</b></div>
+
+ <div class="d17" style="width:1053px;font-size:20px;margin-top:3449px;text-align:center;">
+<center> <table>
+             <tr>
+              <th>NAME</th>
+            <th>Designation</th>
+             </tr>
+             <tr>
+               <td>P.N. Borgohain</td>
+               <td>Scientist-C</td>
+             </tr>
+             <tr>
+               <td>H. Barman</td>
+               <td>Scientist-B</td>
+             </tr>
+ </table></center>
+ </div>
+
+
+
+ <div class="d17" style="width:1053px;margin-top:3598px"><b>Research Extension Centers (RECs)</b></div>
+
+ <div class="d17" style="width:1053px;font-size:20px;margin-top:3677px;text-align:center;">
+<center> <table>
+             <tr>
+              <th>NAME</th>
+            <th>Designation</th>
+             </tr>
+             <tr>
+               <td>S. K. Saikia, REC, Lakhimpur</td>
+               <td>Scientist-D</td>
+             </tr>
+             <tr>
+               <td>S.N. Bagchi, REC, Coochbehar</td>
+               <td>Scientist-D</td>
+             </tr>
+             <tr>
+               <td>N. Biswas, REC, Coochbehar</td>
+               <td>Scientist-D</td>
+             </tr>
+             <tr>
+               <td>G. Bharali, REC, Tura</td>
+               <td>T.A</td>
+             </tr>
+             <tr>
+               <td> R.R. Basumatari, REC, Kokrajhar</td>
+               <td>Scientist-C</td>
+             </tr>
+             <tr>
+               <td>A.U. Khan, REC, Fatehpur</td>
+               <td>Scientist-D</td>
+             </tr>
+             <tr>
+               <td>D. Khanikar, REC, Diphu</td>
+               <td>T.A.</td>
+             </tr>
+ </table></center>
+ </div>
+
+
+      		</div>
+      		<!--info div_right-->
+      
+      		
+      	
+      		<!--footer divs-->
+      		<footer id="foot">
+      		<div class="d18" style="margin-left:150px">Sitemap</div>
+      		<div class="d18" style="">Feedback</div>
+      		<div class="d18" style="">Terms and Use</div>
+      		<div class="d18" style="">Policy & Privacy</div>
+      		
+      		<div id="copy">Copyright &copy; All right reserved CMER&TI (2015 - 2016)</div>
+      	
+      
+      		</footer>
+      		
+     
+      
+    </body>
+
+</html>

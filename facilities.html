@@ -1,0 +1,708 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>Facilities</title>
+    <link rel="stylesheet"type="text/css" href="sample_css.css">
+    <link rel="stylesheet"type="text/css" href="menu_s.css">
+<!--......................................the slideshow........................................................-->
+	<style type="text/css">
+	#slideshow { 
+		
+     
+    position:relative;
+    width: 1485px; 
+    height: 1449px; 
+    padding: 0px; 
+ 
+
+    
+}
+
+#slideshow > div { 
+    position: absolute; 
+    top: 0px; 
+    left: 0px; 
+    right: 10px; 
+    bottom: 10px; 
+}
+
+
+table, th, td {
+    border: 1px solid #4CAF50;;
+    border-collapse: collapse;
+    text-align: center;
+
+}
+th {
+    background-color: #4CAF50;;
+    color: black;
+}
+td{
+  width:323px;
+}
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+	$("#slideshow > div:gt(0)").hide();
+
+setInterval(function() { 
+  $('#slideshow > div:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('#slideshow');
+},  5000);
+	</script>
+
+<!--....................................end of slideshow.............................................................-->
+
+<script type="text/javascript">
+    var ul;
+var li_items; 
+var li_number;
+var image_number = 0;
+var slider_width = 0;
+var image_width;
+var current = 0;
+function init(){	
+	ul = document.getElementById('image_slider');
+	li_items = ul.children;
+	li_number = li_items.length;
+	for (i = 0; i < li_number; i++){
+		// nodeType == 1 means the node is an element.
+		// in this way it's a cross-browser way.
+		//if (li_items[i].nodeType == 1){
+			//clietWidth and width???
+			image_width = li_items[i].childNodes[0].clientWidth;
+			slider_width += image_width;
+			image_number++;
+	}
+	
+	ul.style.width = parseInt(slider_width) + 'px';
+	slider(ul);
+}
+
+function slider(){		
+		animate({
+			delay:17,
+			duration: 3000,
+			delta:function(p){return Math.max(0, -1 + 2 * p)},
+			step:function(delta){
+					ul.style.left = '-' + parseInt(current * image_width + delta * image_width) + 'px';
+				},
+			callback:function(){
+				current++;
+				if(current < li_number-1){
+					slider();
+				}
+				else{
+					var left = (li_number - 1) * image_width;					
+					setTimeout(function(){goBack(left)},3000); 				
+					setTimeout(slider, 3000);
+				}
+			}
+		});
+}
+function goBack(left_limits){
+	current = 0;	
+	setInterval(function(){
+		if(left_limits >= 0){
+			ul.style.left = '-' + parseInt(left_limits) + 'px';
+			left_limits -= image_width / 10;
+		}	
+	}, 17);
+}
+function animate(opts){
+	var start = new Date;
+	var id = setInterval(function(){
+		var timePassed = new Date - start;
+		var progress = timePassed / opts.duration
+		if(progress > 1){
+			progress = 1;
+		}
+		var delta = opts.delta(progress);
+		opts.step(delta);
+		if (progress == 1){
+			clearInterval(id);
+			opts.callback();
+		}
+	}, opts.dalay || 17);
+}
+window.onload = init;
+</script>
+
+  </head>
+    <body>
+    	<div id="slideshow" style="position:absolute">
+    	<div>
+    		 <img src="Aviary Photo_131093630460243541.png">
+  		</div>
+  		 <div>
+    		 <img src="Aviary Photo_131093630140229334.png">
+  		 </div>
+
+  		<div>
+    		 <img src="Aviary Photo_131093630014510153.png">
+  		 </div>
+  		<div>
+    		 <img src="Aviary Photo_131093629635620158.png">
+  		 </div>
+  		<div>
+    		 <img src="Aviary Photo_131093629298581088.png">
+  		 </div>
+		</div>
+
+      <div class="d1" style="position:absolute;margin:auto;">
+      		<!--title divs-->
+
+
+      		<header>
+            <div class="d11" style="opacity:0.2px ;box-shadow:0px 0px 9px -3px black;">
+
+            </div>
+            <div class="d11" style="background-color:transparent;">
+            <div style="position:absolute;">
+            <img src="red.png" style="height:190px;width:190px; margin-left:20px;">
+            </div>
+            <div style="color:black;font-family:Tahoma;font-size:34px;text-align:center;position:absolute;margin-top:30px;margin-left:170px"><b>Central Muga Eri Research and Training Institute (CMER&TI)</b></div>
+
+            <div style="color:black;font-family:Tahoma;font-size:20px;position:absolute;margin-top:110px;margin-left:470px;">Lahdoigarh-785700,Jorhat( ASSAM )</div>
+            <div style="color:black;font-family:Tahoma;font-size:20px;position:absolute;margin-top:140px;margin-left:390px; text-align:center;">Central Silk Board,Ministry Of Textile:Govt. of India
+            <br>
+             <b>( AN ISO 9001 : 2008 Certified Institute )</b>
+            </div>
+            </div>
+          </header>
+
+      		<div style="margin-left:207px; margin-top:210px; position:absolute;">
+      			<div class="dropdown">
+  					<a href="sample_1.html" style="text-decoration:none;"><button class="dropbtn">Home</button></a>
+ 				 </div>
+
+ 				<div class="dropdown"  style="margin-left:121px;">
+ 				 <button class="dropbtn">About</button>
+ 					 <div class="dropdown-content">
+  						  <a href="about_us_intro.html">Introduction</a>
+  						  <a href="about_us_back.html">Background</a>
+  						  <a href="about_us_man.html">Mandate</a>
+  						  <a href="about_us_act.html">Activities</a>
+  						  <a href="Vision for 2020.pdf">Vision Plan 2020</a>
+  						  
+ 					 </div>
+ 				</div>
+
+ 				<div class="dropdown"  style="margin-left:242px;">
+ 				 <button class="dropbtn">Organisation</button>
+ 					 <div class="dropdown-content">
+  						  <a href="org_setup.html">Org Setup</a>
+  						 
+  						  
+ 					 </div>
+ 				</div>
+ 				<div class="dropdown"  style="margin-left:362.5px;">
+ 				 <button class="dropbtn">Division</button>
+ 					 <div class="dropdown-content">
+  						  <a href="div_rd.html">R & D</a>
+  						  <a href="div_admin.html">Administrative</a>
+  						   <a href="div_est.html">Establishment</a>
+  						  <a href="div_o.html">Others</a>
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:483.5px;">
+ 				 <button class="dropbtn">Publication</button>
+ 					 <div class="dropdown-content">
+  						  <a href="pap.html">Publications & Patents</a>
+  						  <a href="rp.html"> Research Publication</a>
+  						  <a href="bm.html"> Books & Manuals</a>
+  						  <a href="tn.html"> Tech Notes</a>
+  						  <a href="lp.html"> Leaflets & Pamphlets</a>
+                 <a href="nl.html">Newsletters</a>
+
+  					  
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:604.5px;">
+ 				 <button class="dropbtn">Technologies</button>
+ 					 <div class="dropdown-content">
+  					 <a href="tp.html">Tech & Patents</a>
+                <a href="Technologies of CMER&TI.pdf">Brief Details</a>
+                <a href="Course Wares-Muga.pdf">Muga Culcure</a>
+                <a href="Course Ware-Eri.pdf">Eri Culcure</a>
+                <a href="CMER&TI technologies  and their  implementation at field level.pdf">Tech & implementation</a>
+  						  
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:725px;">
+ 				 <button class="dropbtn">Projects</button>
+ 					 <div class="dropdown-content">
+  						   <a href="og.html">Ongoing</a>
+                <a href="cl.html">Concluded</a>
+  					
+  						  
+  						  
+ 					 </div>
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:846px;">
+ 				 <a href="contact.html" style="text-decoration:none;"><button class="dropbtn">Contact Us</button></a>
+ 					 
+ 				</div>
+  
+  <div class="dropdown"  style="margin-left:966.5px;">
+ 				 <a href="gallery.html" style="text-decoration:none;"><button class="dropbtn">Gallery</button></a>
+ 					 
+ 				</div>
+  
+  </div>
+
+      		<div class="d12"></div>
+      		<!--info div_left-->
+      	<div class="d13" style="width:1073px; overflow:scroll">
+        <div class="d17" style="width:1053px;font-size:36px;margin-top:2px;"><b>IMPORTANT EQUIPMENTS</b></div>
+         <div class="d17" style="width:1053px;font-size:18px;margin-top:88px;">
+             <center><table bordercolor:black;>
+             <tr style="font-size:30px">
+               <th><b>NAME</b></th>
+               <th><b>MODEL NUMBER</b></th>
+               <th><b>LOCATION</b></th> 
+
+             </tr>
+
+<!--.......................................................................HEADER LIST...............................................................-->
+                 
+                 <tr>
+                   <td>Autoclave</td>
+                   <td>York Scientific Industries PVT, Ltd Modal-451-402</td>
+                   <td>Biotech. Lab.</td>
+                 </tr>
+
+                 <tr>
+                   <td>Autoclave</td>
+                   <td>Vertical; YSI-102</td>
+                   <td>Pathology Lab.</td>
+                 </tr>
+
+                 <tr>
+                   <td>Auto Kzeldahl Apparatus</td>
+                   <td>Pelican</td>
+                   <td>Agronomy & Soil Science Lab</td>
+                 </tr>
+
+                 <tr>
+                   <td>BOD Incubator</td>
+                   <td>Caltan make, MSW-152, Super deluxe, Automatic</td>
+                   <td>Muga Seed Technology Lab.</td>
+                 </tr>
+
+                 <tr>
+                   <td>BOD Incubator</td>
+                   <td>OVFU (O-CIS-$D)</td>
+                   <td>Biotech. Lab.</td>
+                 </tr>
+                 <tr>
+                   <td>Centrifuge with voltage stabilizer</td>
+                   <td>R-23 with 2 rotor heads</td>
+                   <td>Muga Seed Technology Lab.</td>
+
+                 </tr>
+
+                 <tr>
+                   <td>Cooling Centrifuge</td>
+                   <td>Remi; C-24 BL</td>
+                   <td>Biotech. Lab.</td>
+                 </tr>
+                 <tr>
+                   <td>Deep Freezer (-80 &#8451)</td>
+                   <td>DFU-374CE; Operon Co. Ltd., Korea</td>
+                   <td>Biotech. Lab.</td>
+
+                 </tr>
+
+                 <tr>
+                   <td>Deep Freezer (-20 &#8451)</td>
+                   <td>Remi, RQV-600 Plus</td>
+                   <td>Biotech. Lab.</td>
+                 </tr>
+
+                 <tr>
+                   <td> Deep freezer</td>
+                   <td>Vestfrost, Denmark/BF S3455</td>
+                   <td>Biotech. Lab.</td>
+                 </tr>
+
+                 <tr>
+                   <td>Diesel Generator Set</td>
+                   <td>Ashok Leyland 62.5 KVA; 50 KW</td>
+                   <td>Main Office Building</td>
+                 </tr>
+
+                 <tr>
+                   <td>Dissecting Compound Microscope</td>
+                   <td>Olympus MSZ-Bi</td>
+                   <td>Biotech. Lab.</td>
+                 </tr>
+
+                 <tr>
+                   <td>Electronic balance</td>
+                   <td>SHIMADZU, corporation, Kyoto, Model-AY220</td>
+                   <td>Biotech. Lab.</td>
+                 </tr>
+
+                 <tr>
+                   <td>Electronic balance</td>
+                   <td>Mettler Toledo; AL-204/01</td>
+                   <td>Biotech. Lab.</td>
+                 </tr>
+
+                 <tr>
+                   <td>Electronic balance</td>
+                   <td>Sartorius; BS-224S</td>
+                   <td>Biotech. Lab.</td>
+                 </tr>
+
+                 <tr>
+                   <td>Gel Dryer</td>
+                   <td>Cleaver Scientific</td>
+                   <td>Biotech. Lab.</td>
+                 </tr>
+
+                <tr>
+                  <td>Gel Documentation System</td>
+                  <td>Merck Bioscience; 117804GB</td>
+                  <td>Pathology Lab.</td>
+                </tr>
+
+                <tr>
+                  <td>Imaging System</td>
+                  <td>Make-Bangalore Genei</td>
+                  <td>Biotech. Lab.</td>
+                </tr>
+                <tr>
+                  <td>HPLC system</td>
+                  <td>Make-waters</td>
+                  <td>Biotech. Lab.</td>
+                </tr>
+                <tr>
+                  <td>Ice Flaking machine</td>
+                  <td>Manitowoc</td>
+                  <td>Biotech. Lab.</td>
+                </tr>
+                <tr>
+                  <td>Laminar Air Flow Chamber</td>
+                  <td>Labotech Brand, BD - 129</td>
+                  <td>Biotech. Lab.</td>
+                </tr>
+                <tr>
+                  <td>Laminar Air Flow Chamber</td>
+                  <td>Matrix MES-137-HL-42</td>
+                  <td>Biotech. Lab.</td>
+                </tr>
+                <tr>
+                  <td>Laminar Air Flow Chamber </td>
+                  <td>REICO; (Vertical)</td>
+                  <td>Biotech. Lab.</td>
+                </tr>
+                <tr>
+                  <td>Laminar Air Flow Chamber</td>
+                  <td>Horizontal, Macroscient, IFIC Works / Cat. No. MSW-161</td>
+                  <td>Pathology Lab.</td>
+                </tr>
+                <tr>
+                  <td>Leaf Canopy Analyzer</td>
+                  <td></td>
+                  <td>Agronomy & Soil Science Lab.</td>
+                </tr>
+                <tr>
+                  <td>Lyophilizer</td>
+                  <td>ICT</td>
+                  <td>Biotech. Lab.</td>
+                </tr>
+                <tr>
+                  <td>Micro centrifuge </td>
+                  <td>Sigma, Laborzentrifugen GmbH</td>
+                  <td>Biotech. Lab.</td>
+                </tr>
+                <tr>
+                  <td>Micro centrifuge (REMI)</td>
+                  <td>Make-KACI-10292; Model-396-LAG</td>
+                  <td>Biotech. Lab.</td>
+                </tr>
+                <tr>
+                  <td>Microscope</td>
+                  <td>Motic, Model-Bl-223,</td>
+                  <td>Biotech. Lab.</td>
+                </tr>
+                <tr>
+                  <td>Orbital Shaking Incubator</td>
+                  <td>Macro, Model-CATNO-MSW-132</td>
+                  <td>Biotech. Lab.</td>
+                </tr>
+                <tr>
+                  <td>Orbital Shaking Incubator</td>
+                  <td>Remi; CIS 24 Plus</td>
+                  <td>Biotech. Lab.</td>
+                </tr>
+
+                <tr>
+                  <td>PCR Machine</td>
+                  <td>Make-Applied Biosystem</td>
+                  <td>Biotech. Lab.</td>
+                </tr>
+                <tr>
+                  <td>Phase Contrast Microscope</td>
+                  <td>Olympus; CKX 41</td>
+                  <td>Biotech. Lab.</td>
+                </tr>
+                <tr>
+                  <td>Phase Contrast Microscope</td>
+                  <td>Leica DM-750, ICC50 HD Camera</td>
+                  <td>Pathology Lab.</td>
+                </tr>
+                <tr>
+                  <td>Reeling machine</td>
+                  <td>
+                  </td>
+                  <td>PCT</td>
+                </tr>
+                <tr>
+                  <td>Re-Reeling machine</td>
+                  <td>6 windows, closed type</td>
+                  <td>PCT </td>
+                </tr>
+                <tr>
+                  <td>Seed germinator</td>
+                  <td></td>
+                  <td>Host Plant Lab.</td>
+                </tr>
+                
+             </table></center>
+             <br>
+             <br>
+             <center><b style="font-size:36px">OTHER FACILITIES</b></center><br>
+              <b style="color:#4CAF50">Video Conference facility</b><br><br>
+
+Video Conference facility has been established at CMERTI, Lahdoigarh in 2015. The VC room was inaugurated by Dr. H. Nagesh Prabhu, Member Secretary, Central Silk Board, Bengaluru on 16th October, 2015. The first VC session was held on 30th November, 2015 in which discussion was held with Central Office, Bengaluru. <br><br>
+
+
+
+
+  <b style="color:#4CAF50">Library</b><br><br>
+
+CMER&TI maintains a library rich with good collection of books and scientific journals (national and international repute) which cover all facets of sericulture and related sciences. The library facilitates research personnel and other staff to keep abreast of the latest developments besides serving as a knowledge resource centre.<br><br>
+
+<b style="color:#4CAF50">Training Hall cum Hostel,Conference hall,Quarter</b><br><br>
+
+The institute is facilitated with a well equipped conference hall for conducting meetings, seminar, workshop etc. For performing training programmes, a Training hall is constructing with a 36 bed hostel for accommodating trainees & sericulturists. Apart from this, the institute is facilitated with a Quarter complex for accommodating staff and a Rest house for accommodating guests.<br><br>
+
+<b style="color:#4CAF50"> Museum</b><br><br>
+
+The institute has recently developed a museum  with display materials of vanya silk related products, different technology charts.<br><br>
+<b style="color:#4CAF50">Computer</b><br><br>
+
+The institute provides computer facility for all the laboratories, office and library with LAN and internet facilities for easy assessment of literature and communication.<br><br>
+
+
+<b style="color:#4CAF50">Soil Science & Agro-Chemistry Laboratory</b><br><br>
+
+The institute is having a Soil Science and Agro-Chemistry Laboratory equipped with Kel plus nitrogen analyzer assembly, Water bath, Hot air oven, Rotary shaker, Centrifuge, pH meter, Water distillation unit, Electronic balance etc. for doing soil analysis of total nitrogen, available nitrogen, phosphorus and potash.<br><br>
+
+<b style="color:#4CAF50">Biochemistry and Molecular Biology Laboratory</b><br><br>
+
+This laboratory of the institute is strengthened with PCR, Gel documentation system, Ultra cooling micro-centrifuge, Orbital shaking incubator, Gel electrophoresis systems, HPLC System, Platform rocker etc. for doing protein and DNA analysis.<br><br>
+
+<b style="color:#4CAF50">Pathology Laboratory</b><br><br>
+Pathology laboratory of the institute is well equipped with Laminar Air Flow Chamber, Bacteriological Incubator, Stero Zoom Microscope, Autoclave, Humidity Chamber, Deep  Freezer etc. to perform research on management of different host plant and silkworm diseases and to study  host pathogen interaction of various diseases.<br><br>
+
+<b style="color:#4CAF50">POST-COCOON TECHNOLOGY LAB.</b><br><br>
+
+The unit the equipped with muga reeling machines, cocoon dryer, silk plus for cooking, eri spinning machines etc. for reeling and spinning.<br><br>
+<center><b style="font-size:36px">Infrastructure facilities in the Residential Complex of CSB, CMER&TI, Cinnamara Campus</b></center><br><br>
+ <b style="color:#4CAF50;text-align:left;font-size:36px">Land</b><br>
+<ul style="text-align:left;">
+ <li>Total Area of the campus: 5.00 acres (15 Bigha 12 Locha; Dag No. 11, Patta No. 1)</li>
+<li>Total value Rs. 8,96,245.00</li>
+</ul><br><br>
+<b style="color:#4CAF50;text-align:left;font-size:36px">Buildings</b><br><br>
+<center><table>
+  <tr>
+    <th>Building particulars</th>
+    <th>Area</th>
+    <th>Remarks</th>
+  </tr>
+  <tr>
+    <td colspan="3" >QUARTERS</td>
+  </tr>
+  <tr>
+    <td>Type IV quarter - 1 No.</td>
+    <td>68.10 sq. meters</td>
+    <td>Vacant</td>
+  </tr>
+  <tr>
+    <td>Type III quarter -2 Nos.</td>
+    <td>118.24 sq. meters</td>
+    <td>Occupied- 1 vacant- 1 </td>
+  </tr>
+  <tr>
+    <td>Rearing House - 1 no.</td>
+    <td>  250 sq. meters</td>
+    <td>Not useful, requires repairing</td>
+  </tr>
+  <tr>
+    <td colspan="3">NEW BUildings</td>
+  </tr>
+  <tr>
+    <td>Type VI quarter - 1 No.</td>
+    <td>261.89 sq. meters</td>
+    <td>Occupied</td>
+  </tr>
+  <tr>
+    <td>Type V quarter -2 Nos.</td>
+    <td> 149.96 sq. meters each</td>
+    <td>Occupied-1Vacant-1</td>
+  </tr>
+  <tr>
+    <td>Type IV quarter -6 Nos. (Three storeyed)</td>
+    <td>97.80 sq. meters each</td>
+    <td> All occupied</td>
+  </tr>
+  <tr>
+    <td>Type III quarter -6 Nos.</td>
+    <td>65.60 sq. meters each</td>
+    <td>4 occupied</td>
+  </tr>
+  <tr>
+    <td>Type II quarter -6 Nos.</td>
+    <td>Not available</td>
+    <td>Vacant</td>
+  </tr>
+  <tr>
+    <td>Type I quarter -6 Nos.</td>
+    <td>Not available</td>
+    <td> Vacant</td>
+  </tr>
+  <tr>
+    <td>Guest House - 5 rooms (1 deluxe and 4 ordinary type)</td>
+    <td>440.09 sq. mtr.</td>
+    <td>Occupied in September 2008</td>
+  </tr>
+  <tr>
+    <td>Security room at the gate - 1 no.</td>
+    <td>440.09 sq. mtr.</td>
+    <td>Occupied in September 2008</td>
+  </tr>
+  <tr>
+    <td>Security room at the gate - 1 no.</td>
+    <td>440.09 sq. mtr.</td>
+    <td>Occupied in September 2008</td>
+  </tr>
+  <tr>
+    <td>Security room at the gate - 1 no.</td>
+    <td>440.09 sq. mtr.</td>
+    <td>In use</td>
+  </tr>
+  <tr>
+    <td>Garage - 2 nos.</td>
+    <td>440.09 sq. mtr.</td>
+    <td>In use</td>
+  </tr>
+</table></center><br><br>
+<b style="color:#4CAF50;text-align:left;font-size:36px">Water supply facilities</b><br><br>
+
+<center><table>
+  <tr>
+    <th>Particulars</th>
+    <th>Remarks</th>
+  </tr>
+  <tr>
+    <td>Ring well - 1 No.</td>
+    <td>Not used</td>
+  </tr>
+  <tr><td>Water pump house -  Deep Tube Well fitted with submersible water pump - Old</td>
+  <td>Used for Supplying water to old Type IV and III quarters, Guest House, New Type VI and V quarters</td>
+  </tr>
+  <tr>
+    <td>Deep Tube Well fitted with submersible water pump - New</td>
+    <td>Used for Supplying water to New Type IV, III, II and I quarters. Also connected to old Type IV and III quarters, Guest House, New Type VI and V quarters</td>
+  </tr>
+  <tr>
+  <td>Water filtration unit - 1 No.</td>
+  <td>Connected to Deep Tube Well fitted with water pump for lifting water to Overhead Water Tank  (Steel plated, New)</td>
+  </tr>
+  <tr>
+    <td>Overhead Water Tank - Concrete - 1 No. (Old)</td>
+    <td>For Supplying water to old Type IV and III quarters, Guest House, New Type VI and V quarters only</td>
+  </tr>
+  <tr>
+    <td>Overhead Water Tank - Steel plated - 1 No. (New)</td>
+    <td>For Supplying water to all quarters and Guest House.</td>
+  </tr>
+
+</table></center>
+<b style="color:#4CAF50;text-align:left;font-size:36px">Power supply facilities</b><br><br>
+<center>
+  <table>
+    <tr>
+      <th>Particulars</th>
+      <th>Remarks</th>
+    </tr>
+    <tr>
+      <td>Transformer - 74 KW capacity - 1 No.</td>
+      <td>Connected to ASEB lines for regular power supply</td>
+    </tr>
+    <tr>
+      <td>Generator set - 1 No. (Jackson Make; No. JC/SIL/WC/40/5705); Capacity: 40KVA</td>
+      <td>Connected to transformer and power from generator could only be supplied to guest house and street lights.</td>
+    </tr>
+    <tr>
+      <td>Power House - 1 no. (Old), fitted with Panel Boards</td>
+      <td>For power distribution only to Old Type IV, III quarters and rearing house.</td>
+    </tr>
+    <tr>
+      <td>Panel Boards (New) - 4 nos</td>
+      <td>For power distribution only to New quarters.</td>
+    </tr>
+    <tr>
+    <td>Street lights (New) -36 Nos.Old-07 nos</td>
+    <td>Old street lights are not used and out of order.</td>
+    </tr>
+
+    
+  </table>
+</center>
+<br>
+<br>
+<b style="color:#4CAF50;text-align:left;font-size:36px">Guest House</b><br><br>
+The new Rest House of the institute was commissioned in 2008 at its Residential Complex located at Cinnamara, Jorhat, Assam. It is about 5 KM from Jorhat town situated at the roadside (left) of Mariani Jorhat Road, only 0.5 KM from Tocklai Experimental Station of Tea Research Association, 6.5 KM from the Jorhat Airport, only 3.5 KM from the Jorhat Railway Station and 13 KM from Mariani Railway Junction. Sited on a five-acre green campus, the Institute Guest House has 5 tastefully furnished rooms consisting of one VIP suit, one double bedded room and others with two single beds each which can accommodate 8 persons; a Drawing Room with a 10-seater Dining Hall (all air conditioned). Catering facility is available that carefully prepares and serves vegetarian and non-vegetarian cuisines. <br>
+<br>
+<img src="image002.jpg"  style="margin:auto;">
+
+
+             </div>
+      		</div>
+      		<!--info div_right-->
+      
+      		
+      	
+      		<!--footer divs-->
+      		<footer id="foot">
+      		<div class="d18" style="margin-left:150px">Sitemap</div>
+      		<div class="d18" style="">Feedback</div>
+      		<div class="d18" style="">Terms and Use</div>
+      		<div class="d18" style="">Policy & Privacy</div>
+      		
+      		<div id="copy">Copyright &copy; All right reserved CMER&TI (2015 - 2016)</div>
+      	
+      
+      		</footer>
+      		
+     
+      
+    </body>
+
+</html>
