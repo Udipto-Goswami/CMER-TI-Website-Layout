@@ -1,0 +1,343 @@
+
+
+.d11{
+	 position:absolute;
+	 background-color:white;
+	 height: 200px;
+	 width:1080px;
+	 margin-left: 210px;
+	 opacity: 0.8;
+	 
+   }
+.d12{
+	 position:absolute;
+	 background-color:white;
+	 height: 70px;
+	 width:1080px;
+	 margin-left: 210px;
+	 margin-top: 210px;
+	 box-shadow:0px 0px 15px 4px black;
+	 opacity: 0.8;
+   }
+.d13{
+	 position:absolute;
+	border-color: white;
+	 border-style: solid;
+	 border-width: 4px;
+	 border-radius: 7px;
+	 height: 854px;
+	 width:300px;
+	 margin-left: 210px;
+	 margin-top: 290px;
+	 box-shadow:0px 0px 15px 4px black;
+   }
+
+.d14{
+	 position:absolute;
+	 border-color: white;
+	 border-style: solid;
+	 border-width: 4px;
+	 border-radius: 7px;
+	 height: 230px;
+	 width:744px;
+	 margin-left: 538px;
+	 margin-top: 290px;
+	 box-shadow:0px 0px 15px 4px black;
+
+   }
+
+.d15{
+
+		position:absolute;
+		border-color: white;
+		border-width: 4px;
+		border-radius: 7px;
+		border-style: solid;
+		height: 605px;
+		width: 360px;
+		margin-left: 538px;
+		margin-top: 540px; 
+		box-shadow:0px 0px 15px 4px black;
+}
+.d16{
+
+		position:absolute;
+		border-color: white;
+		border-width: 4px;
+		border-radius: 7px;
+		border-style: solid;
+		height: 605px;
+		width: 360px;
+		margin-left: 923px;
+		margin-top: 540px; 
+		box-shadow:0px 0px 15px 4px black;
+}
+.d17{
+
+		position:absolute;
+		background-color: white;
+		font-size: 30px;
+		width: 356.5px;
+		margin-top: 2px;
+		margin-left: 2px;
+		color:black;
+		font-family: Tahoma;
+		 text-align: center;
+   		 text-decoration: none;
+   		 padding: 16px 0px;
+   		  opacity: 0.8;
+   		 
+
+		 
+}
+
+.d18{
+
+		position:relative;
+		
+		font-size: 20px;
+		width: 300px;
+		margin-top: 20px;
+		margin-left: 2px;
+		color:white;
+		font-family: Tahoma;
+		 text-align: center;
+   		 text-decoration: none;
+   		 padding: 16px 0px;
+   		 float: left;
+
+
+		 
+}
+#copy
+{
+	position:relative;
+		
+		font-size: 35px;
+		width: 700px;
+		margin-top: 20px;
+		margin-left: 400px;
+		color:white;
+		font-family: Tahoma;
+		 text-align: center;
+   		 text-decoration: none;
+   		 padding: 16px 0px;
+   		 float: left;
+}
+
+
+
+#foot
+{
+	position: absolute;
+	background-color: black;
+	height:300px; 
+	width:1505px;
+	margin-top: 1198px;
+	opacity:0.9;
+	font-family: Tahoma;
+	font-size: 28px;
+	color: white;
+
+
+}
+/*..............................btns........................*/
+.btn {
+	position: absolute;
+	width:286px;
+    background-color:white ;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    margin: 1px 7px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: black; 
+    border-radius: 10px;
+    opacity: 0.8;
+   
+	/*-moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;*/
+ 
+}
+.btn:hover {
+    background-color:#4CAF50;/*background color*/
+    color: black;/*text color*/
+    
+    /* -webkit-transition-duration: 0.4s; /* Safari 
+    transition-duration: 0.4s;*/
+    cursor: pointer;
+    -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+ opacity: 0.8;
+}
+/*.................................LOGIN_BOX...................................*/
+.logbox
+{
+	position: absolute;
+	background-color:black;
+	opacity: 0.9;
+	position:absolute;
+	border-radius: 7px;
+	height: 303px;
+	width:455px;
+	margin-left: 833px;
+	margin-top: 292px;
+	color:red;
+
+}
+
+#heading_login
+{
+	position: absolute;
+	width:455px;
+	
+	color:black;
+	font-size: 30px;
+	text-align: center;
+	margin-top: 30px;
+	font-family: tahoma;
+}
+.form {
+	position: absolute;
+    max-height: 500px;
+    max-width: 500px;
+    padding: 10px 50px;
+    border-radius: 10px;
+    margin: 70px auto;
+}
+.automata {
+	background: #f5f5f5;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    border: none;
+    padding: 13px 10px;
+    width: 270px;
+    /*margin-top: 70px;*/
+    margin-left: 40px;
+    margin-bottom: 5px;
+    box-shadow: inset 0 2px 3px rgba( 0, 0, 0, 0.1 );
+    clear: both;
+	box-sizing: border-box;
+
+	}
+
+	.automata:focus{
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(1,158,199,0.9), inset 0 2px 3px rgba( 0, 0, 0, 0.2 ), 0px 5px 5px rgba( 0, 0, 0, 0.15 );
+    bor
+    outline: none;
+}
+/*.....................Slider......................*/
+
+.image-slider-wrapper{
+	overflow: hidden;
+	position: relative;
+	background-color: red;
+	height: 230px;
+}
+#image_slider{
+	position: relative;
+	overflow: hidden;
+	height: 300px;
+	padding:0;
+	left:0;
+	margin-top: -5px;
+	-webkit-transition-duration:0.9s;
+	transition-duration:0.9s;
+}
+#image_slider li{
+	position:relative;
+	max-width: 100%;
+	float:left;
+	list-style: none;
+	left: 0;
+	-webkit-transition-duration:0.9s;
+	transition-duration:0.9s;
+}
+
+/*........................................slides................................*/
+<style>
+* {box-sizing:border-box}
+body {font-family: Verdana,sans-serif;margin:0}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color:#4CAF50;
+  color:white; 
+ 
+}
+.prev{
+	left:0;
+}
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .slprev, .slnext,.text {font-size: 11px}
+}
+</style>
